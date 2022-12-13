@@ -1,0 +1,706 @@
+drop table Dolzjnosti
+drop table Avto
+Use master
+drop  database T_K
+Use master
+create database T_K
+------------------------------------
+Use T_K
+create table Dolzjnosti
+(   
+  Kod_dolzjnosti integer IDENTITY(1,1),
+  Naimenovanie_Dolzjnosti VARCHAR(50) NOT NULL,
+  Oklad integer NOT NULL,
+  Objazanosti VARCHAR(50) NOT NULL,
+  Trebovania VARCHAR(50) NOT NULL,
+  
+  PRIMARY KEY (Kod_dolzjnosti)
+)
+
+
+
+insert into Dolzjnosti (Naimenovanie_Dolzjnosti, Oklad, Objazanosti, Trebovania) 
+values('Dolzjnost1', 111, 'Objazanosti1','Trebovania1');
+insert into Dolzjnosti (Naimenovanie_Dolzjnosti, Oklad, Objazanosti, Trebovania) 
+values('Dolzjnost2', 211, 'Objazanosti2','Trebovania2');
+insert into Dolzjnosti (Naimenovanie_Dolzjnosti, Oklad, Objazanosti, Trebovania) 
+values('Dolzjnost3', 311, 'Objazanosti3','Trebovania3');
+insert into Dolzjnosti (Naimenovanie_Dolzjnosti, Oklad, Objazanosti, Trebovania) 
+values('Dolzjnost4', 411, 'Objazanosti4','Trebovania4');
+------------------------------------
+Use T_K
+create table Sotrudnika
+(   
+  Kod_sotrudnika integer IDENTITY(1,1),   
+  FIO VARCHAR(50) NOT NULL,
+  Vozrast integer NOT NULL,
+  Pol VARCHAR(1) NOT NULL,
+  Adress VARCHAR(30) NOT NULL,
+  Phone VARCHAR(13) NOT NULL,
+  Passport_data VARCHAR(20) NOT NULL,
+  Kod_dolzjnosti integer NOT NULL,
+  
+  PRIMARY KEY (Kod_sotrudnika),
+  FOREIGN KEY (Kod_dolzjnosti) REFERENCES Dolzjnosti(Kod_dolzjnosti)
+)
+
+
+insert into Sotrudnika (FIO, Vozrast, Pol, Adress, Phone, Passport_data, Kod_dolzjnosti) 
+values('FIO1', 10, 'P','Adress1','Phone1','Passport_data1',1);
+insert into Sotrudnika (FIO, Vozrast, Pol, Adress, Phone, Passport_data, Kod_dolzjnosti) 
+values('FIO2', 20, 'P','Adress2','Phone2','Passport_data2',2);
+insert into Sotrudnika (FIO, Vozrast, Pol, Adress, Phone, Passport_data, Kod_dolzjnosti) 
+values('FIO3', 30, 'P','Adress3','Phone3','Passport_data3',3);
+insert into Sotrudnika (FIO, Vozrast, Pol, Adress, Phone, Passport_data, Kod_dolzjnosti) 
+values('FIO4', 40, 'P','Adress4','Phone4','Passport_data4',4);
+------------------------------------
+Use T_K
+create table Vidi_Avto
+(   
+  Kod_vida_avto integer IDENTITY(1,1),
+  Naimenovanie VARCHAR(50) NOT NULL,
+  Opisanie VARCHAR(50) NOT NULL,
+  
+  PRIMARY KEY (Kod_vida_avto)
+)
+  
+
+insert into Vidi_Avto (Naimenovanie, Opisanie) 
+values('Naimenovanie1', 'Opisanie1');
+insert into Vidi_Avto (Naimenovanie, Opisanie) 
+values('Naimenovanie2', 'Opisanie2');
+insert into Vidi_Avto (Naimenovanie, Opisanie) 
+values('Naimenovanie3', 'Opisanie3');
+insert into Vidi_Avto (Naimenovanie, Opisanie) 
+values('Naimenovanie4', 'Opisanie4');
+------------------------------------
+Use T_K
+create table Marki_Avto
+(   
+  Kod_marki integer IDENTITY(1,1),   
+  Naimenovanie VARCHAR(50) NOT NULL,
+  Tex_xaract VARCHAR(50) NOT NULL,
+  Opisanie VARCHAR(50) NOT NULL,
+  
+  PRIMARY KEY (Kod_marki)
+)
+
+
+insert into Marki_Avto (Naimenovanie, Tex_xaract, Opisanie) 
+values('Naimenovanie1', 'Tex_xaract1', 'Opisanie1');
+insert into Marki_Avto (Naimenovanie, Tex_xaract, Opisanie) 
+values('Naimenovanie2', 'Tex_xaract2', 'Opisanie2');
+insert into Marki_Avto (Naimenovanie, Tex_xaract, Opisanie) 
+values('Naimenovanie3', 'Tex_xaract3', 'Opisanie3');
+insert into Marki_Avto (Naimenovanie, Tex_xaract, Opisanie) 
+values('Naimenovanie4', 'Tex_xaract4', 'Opisanie4');
+------------------------------------
+Use T_K
+create table Vidi_Gruzov
+(   
+  Kod_vida_gruza integer IDENTITY(1,1),   
+  Naimenovanie VARCHAR(50) NOT NULL,
+  Kod_vida_avto_dla_trans integer NOT NULL,
+  Opisanie VARCHAR(50) NOT NULL,
+  
+  PRIMARY KEY (Kod_vida_gruza),
+  FOREIGN KEY (Kod_vida_avto_dla_trans) REFERENCES Vidi_Avto(Kod_vida_avto)
+)
+
+
+insert into Vidi_Gruzov(Naimenovanie, Kod_vida_avto_dla_trans, Opisanie) 
+values('Naimenovanie1', 1, 'Opisanie1');
+insert into Vidi_Gruzov(Naimenovanie, Kod_vida_avto_dla_trans, Opisanie) 
+values('Naimenovanie2', 2, 'Opisanie2');
+insert into Vidi_Gruzov(Naimenovanie, Kod_vida_avto_dla_trans, Opisanie) 
+values('Naimenovanie3', 3, 'Opisanie3');
+insert into Vidi_Gruzov(Naimenovanie, Kod_vida_avto_dla_trans, Opisanie) 
+values('Naimenovanie4', 4, 'Opisanie4');
+
+------------------------------------
+Use T_K
+create table Gruzi
+(   
+  Kod_gruza integer IDENTITY(1,1),   
+  Naimenovanie VARCHAR(50) NOT NULL,
+  Kod_vida_gruza integer NOT NULL,
+  Shelf_life DATE NOT NULL,
+  Osodenosti VARCHAR(50) NOT NULL,
+  
+  PRIMARY KEY (Kod_gruza),
+  FOREIGN KEY (Kod_vida_gruza) REFERENCES Vidi_Gruzov(Kod_vida_gruza)
+)
+
+
+insert into Gruzi(Naimenovanie, Kod_vida_gruza, Shelf_life, Osodenosti) 
+values('Naimenovanie1',1,'2021.01.01','Osodenosti1');
+insert into Gruzi(Naimenovanie, Kod_vida_gruza, Shelf_life, Osodenosti) 
+values('Naimenovanie2',2,'2021.01.02','Osodenosti2');
+insert into Gruzi(Naimenovanie, Kod_vida_gruza, Shelf_life, Osodenosti) 
+values('Naimenovanie3',3,'2021.01.03','Osodenosti3');
+insert into Gruzi(Naimenovanie, Kod_vida_gruza, Shelf_life, Osodenosti) 
+values('Naimenovanie4',4,'2021.01.04','Osodenosti4');
+
+------------------------------------
+Use T_K
+create table Avto
+(   
+  Kod_avto integer IDENTITY(1,1),   
+  Kod_marki integer NOT NULL,
+  Kod_vida_avto integer NOT NULL,
+  Kod_sotrudnika_voditelya integer NOT NULL,
+  Kod_sotrudnika_mexanika integer NOT NULL,
+  Reg_nomer VARCHAR(50) NOT NULL,
+  Nomer_kuzova VARCHAR(50) NOT NULL,
+  Nomer_dvigatelya VARCHAR(50) NOT NULL,
+  God_vipuska DATE NOT NULL,
+  Data_Poslednego_TO DATE NOT NULL,
+  
+  PRIMARY KEY (Kod_avto),
+  FOREIGN KEY (Kod_marki) REFERENCES Marki_Avto(Kod_marki),
+  FOREIGN KEY (Kod_vida_avto) REFERENCES Vidi_Avto(Kod_vida_avto),
+  FOREIGN KEY (Kod_sotrudnika_voditelya) REFERENCES Sotrudnika(Kod_sotrudnika),
+  FOREIGN KEY (Kod_sotrudnika_mexanika) REFERENCES Sotrudnika(Kod_sotrudnika)
+)
+
+
+insert into Avto(Kod_marki, Kod_vida_avto, Kod_sotrudnika_voditelya, Kod_sotrudnika_mexanika, Reg_nomer, Nomer_kuzova, Nomer_dvigatelya, God_vipuska, Data_Poslednego_TO ) 
+values(1, 1, 1, 1,'Reg_nomer1','Nomer_kuzova1','Nomer_dvigatelya1','2011.01.01','2012.01.01');
+insert into Avto(Kod_marki, Kod_vida_avto, Kod_sotrudnika_voditelya, Kod_sotrudnika_mexanika, Reg_nomer, Nomer_kuzova, Nomer_dvigatelya, God_vipuska, Data_Poslednego_TO ) 
+values(2, 2, 2, 2,'Reg_nomer2','Nomer_kuzova2','Nomer_dvigatelya2','2011.01.02','2012.01.02');
+insert into Avto(Kod_marki, Kod_vida_avto, Kod_sotrudnika_voditelya, Kod_sotrudnika_mexanika, Reg_nomer, Nomer_kuzova, Nomer_dvigatelya, God_vipuska, Data_Poslednego_TO ) 
+values(3, 3, 3, 3,'Reg_nomer3','Nomer_kuzova3','Nomer_dvigatelya3','2011.01.03','2012.01.03');
+insert into Avto(Kod_marki, Kod_vida_avto, Kod_sotrudnika_voditelya, Kod_sotrudnika_mexanika, Reg_nomer, Nomer_kuzova, Nomer_dvigatelya, God_vipuska, Data_Poslednego_TO ) 
+values(4, 4, 4, 4,'Reg_nomer4','Nomer_kuzova4','Nomer_dvigatelya4','2011.01.04','2012.01.04');
+------------------------------------
+Use T_K
+create table Reysi
+(   
+  Kod_avto integer NOT NULL,   
+  Kod_gruza integer NOT NULL,
+  Kod_sotrudnika integer NOT NULL,
+  Zakazchik VARCHAR(50) NOT NULL,
+  Otkuda VARCHAR(50) NOT NULL,
+  Kuda VARCHAR(50) NOT NULL,
+  Data_Otpravlenia DATE NOT NULL,
+  Data_Pribitia DATE NOT NULL,
+  Cena integer NOT NULL,
+  Otmetka_ob_oplate VARCHAR(50) NOT NULL,
+  Otmetka_o_vozvrachenie VARCHAR(50) NOT NULL,
+  
+  FOREIGN KEY (Kod_avto) REFERENCES Avto(Kod_avto),
+  FOREIGN KEY (Kod_gruza) REFERENCES Gruzi(Kod_gruza),
+  FOREIGN KEY (Kod_sotrudnika) REFERENCES Sotrudnika(Kod_sotrudnika)
+)
+
+insert into Reysi(Kod_avto, Kod_gruza, Kod_sotrudnika, Zakazchik, Otkuda, Kuda, Data_Otpravlenia, Data_Pribitia, Cena, Otmetka_ob_oplate, Otmetka_o_vozvrachenie) 
+values(1, 1, 1,'Zakazchik1','Otkuda1','Kuda1','2020.01.01','2020.01.01',1111,'Otmetka_ob_oplate1','Otmetka_o_vozvrachenie1');
+insert into Reysi(Kod_avto, Kod_gruza, Kod_sotrudnika, Zakazchik, Otkuda, Kuda, Data_Otpravlenia, Data_Pribitia, Cena, Otmetka_ob_oplate, Otmetka_o_vozvrachenie) 
+values(2, 2, 2,'Zakazchik2','Otkuda2','Kuda2','2020.01.02','2020.01.02',2111,'Otmetka_ob_oplate2','Otmetka_o_vozvrachenie2');
+insert into Reysi(Kod_avto, Kod_gruza, Kod_sotrudnika, Zakazchik, Otkuda, Kuda, Data_Otpravlenia, Data_Pribitia, Cena, Otmetka_ob_oplate, Otmetka_o_vozvrachenie) 
+values(3, 3, 3,'Zakazchik3','Otkuda3','Kuda3','2020.01.03','2020.01.03',3111,'Otmetka_ob_oplate3','Otmetka_o_vozvrachenie3');
+insert into Reysi(Kod_avto, Kod_gruza, Kod_sotrudnika, Zakazchik, Otkuda, Kuda, Data_Otpravlenia, Data_Pribitia, Cena, Otmetka_ob_oplate, Otmetka_o_vozvrachenie) 
+values(4, 4, 4,'Zakazchik4','Otkuda4','Kuda4','2020.01.04','2020.01.04',4111,'Otmetka_ob_oplate4','Otmetka_o_vozvrachenie4');
+
+------------------------------------------------------------------------
+Use T_K
+GO
+CREATE PROCEDURE zapros1
+AS
+select 
+
+  Sotrudnika.Kod_dolzjnosti,
+  Kod_sotrudnika,   
+  FIO,
+  Vozrast,
+  Pol,
+  Adress,
+  Phone,
+  Passport_data,
+
+  Naimenovanie_Dolzjnosti,
+  Oklad,
+  Objazanosti,
+  Trebovania
+  
+from Sotrudnika, Dolzjnosti
+where Sotrudnika.Kod_dolzjnosti = Dolzjnosti.Kod_dolzjnosti
+------------------------------------
+exec zapros1
+------------------------------------ 
+Use T_K
+GO
+CREATE PROCEDURE zapros2
+AS
+select
+
+  Kod_vida_gruza ,   
+  Vidi_Gruzov.Naimenovanie ,
+  Kod_vida_avto_dla_trans ,
+  Vidi_Gruzov.Opisanie ,
+  
+  Vidi_Avto.Naimenovanie ,
+  Vidi_Avto.Opisanie
+
+from Vidi_Gruzov, Vidi_Avto
+where Vidi_Gruzov.Kod_vida_avto_dla_trans  = Vidi_Avto.Kod_vida_avto
+
+------------------------------------
+exec zapros2
+------------------------------------
+Use T_K
+GO
+CREATE PROCEDURE zapros3
+AS
+select
+
+  Kod_gruza ,   
+  Gruzi.Naimenovanie ,
+  Gruzi.Kod_vida_gruza ,
+  Shelf_life ,
+  Gruzi.Osodenosti ,
+   
+  Vidi_Gruzov.Naimenovanie ,
+  Kod_vida_avto_dla_trans ,
+  Vidi_Gruzov.Opisanie
+
+from Gruzi, Vidi_Gruzov
+where Gruzi.Kod_vida_gruza  = Vidi_Gruzov.Kod_vida_gruza
+
+------------------------------------
+exec zapros3
+------------------------------------
+Use T_K
+GO
+CREATE PROCEDURE zapros4
+AS
+select
+
+  Kod_avto ,   
+  Avto.Kod_marki,
+  Avto.Kod_vida_avto ,
+  Kod_sotrudnika_voditelya ,
+  Kod_sotrudnika_mexanika ,
+  Reg_nomer ,
+  Nomer_kuzova ,
+  Nomer_dvigatelya ,
+  God_vipuska,
+  Data_Poslednego_TO ,
+
+   
+  Marki_Avto.Naimenovanie ,
+  Tex_xaract ,
+  Marki_Avto.Opisanie ,
+
+  Vidi_Avto.Naimenovanie ,
+  Vidi_Avto.Opisanie ,
+   
+  FIO ,
+  Vozrast ,
+  Pol ,
+  Adress ,
+  Phone ,
+  Passport_data ,
+  Kod_dolzjnosti 
+  
+  
+from Avto, Marki_Avto, Vidi_Avto, Sotrudnika
+where (Avto.Kod_marki  = Marki_Avto.Kod_marki)
+AND ( Avto.Kod_vida_avto  = Vidi_Avto.Kod_vida_avto)
+AND (Avto.Kod_sotrudnika_voditelya  = Sotrudnika.Kod_sotrudnika)
+AND ( Avto.Kod_sotrudnika_mexanika  = Sotrudnika.Kod_sotrudnika)
+
+------------------------------------
+exec zapros4
+------------------------------------
+Use T_K
+GO
+CREATE PROCEDURE zapros5
+AS
+select
+
+  Reysi.Kod_avto ,   
+  Reysi.Kod_gruza ,
+  Reysi.Kod_sotrudnika ,
+  Zakazchik ,
+  Otkuda ,
+  Kuda ,
+  Data_Otpravlenia ,
+  Data_Pribitia ,
+  Cena ,
+  Otmetka_ob_oplate ,
+  Otmetka_o_vozvrachenie ,
+  
+  Kod_marki ,
+  Kod_vida_avto ,
+  Kod_sotrudnika_voditelya,
+  Kod_sotrudnika_mexanika ,
+  Reg_nomer ,
+  Nomer_kuzova ,
+  Nomer_dvigatelya ,
+  God_vipuska ,
+  Data_Poslednego_TO ,
+     
+  Naimenovanie, 
+  Kod_vida_gruza ,
+  Shelf_life ,
+  Osodenosti ,
+  
+  FIO ,
+  Vozrast ,
+  Pol ,
+  Adress ,
+  Phone ,
+  Passport_data ,
+  Kod_dolzjnosti
+
+from Reysi, Avto, Gruzi, Sotrudnika
+where (Reysi.Kod_avto = Avto.Kod_avto)
+AND ( Reysi.Kod_gruza  = Gruzi.Kod_gruza)
+AND (Reysi.Kod_sotrudnika  = Sotrudnika.Kod_sotrudnika)
+
+------------------------------------
+exec zapros5
+------------------------------------
+Use T_K
+GO
+create PROCEDURE proc1   
+    @Znachenie1 nvarchar(50)    
+AS   
+
+select 
+
+  Sotrudnika.Kod_dolzjnosti,
+  Kod_sotrudnika,   
+  FIO,
+  Vozrast,
+  Pol,
+  Adress,
+  Phone,
+  Passport_data,
+
+  Naimenovanie_Dolzjnosti,
+  Oklad,
+  Objazanosti,
+  Trebovania
+  
+from Sotrudnika, Dolzjnosti
+where ((Sotrudnika.Kod_dolzjnosti = Dolzjnosti.Kod_dolzjnosti) 
+and (Dolzjnosti.Naimenovanie_Dolzjnosti = @Znachenie1))
+
+------------------------------------ 
+ exec proc1 'Dolzjnost1'
+  exec proc1 'Dolzjnost2'
+------------------------------------ 
+Use T_K
+GO
+CREATE PROCEDURE proc2   
+    @Znachenie2 nvarchar(50)    
+AS   
+
+select
+
+  Kod_gruza ,   
+  Gruzi.Naimenovanie ,
+  Gruzi.Kod_vida_gruza ,
+  Shelf_life ,
+  Gruzi.Osodenosti ,
+   
+  Vidi_Gruzov.Naimenovanie ,
+  Kod_vida_avto_dla_trans ,
+  Vidi_Gruzov.Opisanie
+
+from Gruzi, Vidi_Gruzov
+where (Gruzi.Kod_vida_gruza  = Vidi_Gruzov.Kod_vida_gruza
+and (Vidi_Gruzov.Naimenovanie = @Znachenie2))
+
+------------------------------------ 
+ 
+ exec proc2 'Naimenovanie1'
+  exec proc2 'Naimenovanie2'
+ 
+ 
+------------------------------------ 
+Use T_K
+GO
+CREATE PROCEDURE proc3   
+    @Znachenie3 nvarchar(50)    
+AS   
+
+select
+
+  Kod_avto ,   
+  Avto.Kod_marki,
+  Avto.Kod_vida_avto ,
+  Kod_sotrudnika_voditelya ,
+  Kod_sotrudnika_mexanika ,
+  Reg_nomer ,
+  Nomer_kuzova ,
+  Nomer_dvigatelya ,
+  God_vipuska D,
+  Data_Poslednego_TO ,
+
+   
+  Marki_Avto.Naimenovanie ,
+  Tex_xaract ,
+  Marki_Avto.Opisanie ,
+
+  Vidi_Avto.Naimenovanie ,
+  Vidi_Avto.Opisanie ,
+   
+  FIO ,
+  Vozrast ,
+  Pol ,
+  Adress ,
+  Phone ,
+  Passport_data ,
+  Kod_dolzjnosti 
+  
+  
+from Avto, Marki_Avto, Vidi_Avto, Sotrudnika
+where ((Avto.Kod_marki  = Marki_Avto.Kod_marki)
+AND ( Avto.Kod_vida_avto  = Vidi_Avto.Kod_vida_avto)
+AND (Avto.Kod_sotrudnika_voditelya  = Sotrudnika.Kod_sotrudnika)
+AND ( Avto.Kod_sotrudnika_mexanika  = Sotrudnika.Kod_sotrudnika)
+and (Vidi_Avto.Naimenovanie = @Znachenie3))
+
+------------------------------------ 
+ 
+ exec proc3 'Naimenovanie1'
+  exec proc3 'Naimenovanie2'
+  
+------------------------------------ 
+Use T_K
+GO
+CREATE PROCEDURE proc4   
+    @Znachenie4 nvarchar(50)    
+AS   
+
+select
+
+  Reysi.Kod_avto ,   
+  Reysi.Kod_gruza ,
+  Reysi.Kod_sotrudnika ,
+  Zakazchik ,
+  Otkuda ,
+  Kuda ,
+  Data_Otpravlenia ,
+  Data_Pribitia ,
+  Cena ,
+  Otmetka_ob_oplate ,
+  Otmetka_o_vozvrachenie ,
+  
+  Kod_marki ,
+  Kod_vida_avto ,
+  Kod_sotrudnika_voditelya,
+  Kod_sotrudnika_mexanika ,
+  Reg_nomer ,
+  Nomer_kuzova ,
+  Nomer_dvigatelya ,
+  God_vipuska ,
+  Data_Poslednego_TO ,
+     
+  Naimenovanie, 
+  Kod_vida_gruza ,
+  Shelf_life ,
+  Osodenosti ,
+  
+  FIO ,
+  Vozrast ,
+  Pol ,
+  Adress ,
+  Phone ,
+  Passport_data ,
+  Kod_dolzjnosti
+
+from Reysi, Avto, Gruzi, Sotrudnika
+where ((Reysi.Kod_avto = Avto.Kod_avto)
+AND ( Reysi.Kod_gruza  = Gruzi.Kod_gruza)
+AND (Reysi.Kod_sotrudnika  = Sotrudnika.Kod_sotrudnika)
+and (Gruzi.Naimenovanie = @Znachenie4))
+
+------------------------------------ 
+ 
+ exec proc4 'Naimenovanie1'
+  exec proc4 'Naimenovanie2'
+  
+------------------------------------ 
+Use T_K
+GO
+CREATE PROCEDURE proc5   
+    @Znachenie5 nvarchar(50)    
+AS   
+
+select
+
+  Reysi.Kod_avto ,   
+  Reysi.Kod_gruza ,
+  Reysi.Kod_sotrudnika ,
+  Zakazchik ,
+  Otkuda ,
+  Kuda ,
+  Data_Otpravlenia ,
+  Data_Pribitia ,
+  Cena ,
+  Otmetka_ob_oplate ,
+  Otmetka_o_vozvrachenie ,
+  
+  Kod_marki ,
+  Kod_vida_avto ,
+  Kod_sotrudnika_voditelya,
+  Kod_sotrudnika_mexanika ,
+  Reg_nomer ,
+  Nomer_kuzova ,
+  Nomer_dvigatelya ,
+  God_vipuska ,
+  Data_Poslednego_TO ,
+     
+  Naimenovanie ,
+  Kod_vida_gruza ,
+  Shelf_life ,
+  Osodenosti ,
+  
+  FIO ,
+  Vozrast ,
+  Pol ,
+  Adress ,
+  Phone ,
+  Passport_data ,
+  Kod_dolzjnosti
+
+from Reysi, Avto, Gruzi, Sotrudnika
+where ((Reysi.Kod_avto = Avto.Kod_avto)
+AND ( Reysi.Kod_gruza  = Gruzi.Kod_gruza)
+AND (Reysi.Kod_sotrudnika  = Sotrudnika.Kod_sotrudnika)
+and (Reysi.Zakazchik = @Znachenie5))
+
+------------------------------------ 
+ 
+ exec proc5 'Zakazchik1'
+  exec proc5 'Zakazchik2'
+  
+    ------------------------------------ 
+Use T_K
+GO
+CREATE PROCEDURE proc6   
+    @Znachenie6 nvarchar(50)    
+AS   
+
+select
+
+  Reysi.Kod_avto ,   
+  Reysi.Kod_gruza ,
+  Reysi.Kod_sotrudnika ,
+  Zakazchik ,
+  Otkuda ,
+  Kuda ,
+  Data_Otpravlenia ,
+  Data_Pribitia ,
+  Cena ,
+  Otmetka_ob_oplate ,
+  Otmetka_o_vozvrachenie ,
+  
+  Kod_marki ,
+  Kod_vida_avto ,
+  Kod_sotrudnika_voditelya,
+  Kod_sotrudnika_mexanika ,
+  Reg_nomer ,
+  Nomer_kuzova ,
+  Nomer_dvigatelya ,
+  God_vipuska ,
+  Data_Poslednego_TO ,
+     
+  Naimenovanie ,
+  Kod_vida_gruza ,
+  Shelf_life ,
+  Osodenosti ,
+  
+  FIO ,
+  Vozrast ,
+  Pol ,
+  Adress ,
+  Phone ,
+  Passport_data ,
+  Kod_dolzjnosti
+
+from Reysi, Avto, Gruzi, Sotrudnika
+where ((Reysi.Kod_avto = Avto.Kod_avto)
+AND ( Reysi.Kod_gruza  = Gruzi.Kod_gruza)
+AND (Reysi.Kod_sotrudnika  = Sotrudnika.Kod_sotrudnika)
+and (Reysi.Otmetka_ob_oplate = @Znachenie6))
+
+------------------------------------ 
+ 
+ exec proc6 'Otmetka_ob_oplate1'
+  exec proc6 'Otmetka_ob_oplate2'
+  
+------------------------------------ 
+Use T_K
+GO
+CREATE PROCEDURE proc7   
+    @Znachenie7 nvarchar(50)    
+AS   
+
+select
+
+  Reysi.Kod_avto ,   
+  Reysi.Kod_gruza ,
+  Reysi.Kod_sotrudnika ,
+  Zakazchik ,
+  Otkuda ,
+  Kuda ,
+  Data_Otpravlenia ,
+  Data_Pribitia ,
+  Cena ,
+  Otmetka_ob_oplate ,
+  Otmetka_o_vozvrachenie ,
+  
+  Kod_marki ,
+  Kod_vida_avto ,
+  Kod_sotrudnika_voditelya,
+  Kod_sotrudnika_mexanika ,
+  Reg_nomer ,
+  Nomer_kuzova ,
+  Nomer_dvigatelya ,
+  God_vipuska ,
+  Data_Poslednego_TO ,
+     
+  Naimenovanie ,
+  Kod_vida_gruza ,
+  Shelf_life ,
+  Osodenosti ,
+  
+  FIO ,
+  Vozrast ,
+  Pol ,
+  Adress ,
+  Phone ,
+  Passport_data ,
+  Kod_dolzjnosti
+
+from Reysi, Avto, Gruzi, Sotrudnika
+where ((Reysi.Kod_avto = Avto.Kod_avto)
+AND ( Reysi.Kod_gruza  = Gruzi.Kod_gruza)
+AND (Reysi.Kod_sotrudnika  = Sotrudnika.Kod_sotrudnika)
+and (Reysi.Otmetka_o_vozvrachenie = @Znachenie7))
+
+------------------------------------ 
+ 
+ exec proc7 'Otmetka_o_vozvrachenie1'
+  exec proc7 'Otmetka_o_vozvrachenie2'
+
+------------------------------------
+Use T_K
+GO
+--drop Procedure EditDolzjnosti
+create Procedure EditDolzjnosti
+@VvodPolzovatela nvarchar(32),
+@Oklad int,
+@Objazanosti nvarchar(32),
+@Trebovania nvarchar(32),
+@Kod int = 0
+as
+begin
+Update Dolzjnosti set Naimenovanie_Dolzjnosti = @VvodPolzovatela, Oklad = @Oklad, Objazanosti = @Objazanosti,Trebovania = @Trebovania
+where Kod_dolzjnosti = @Kod
+end;

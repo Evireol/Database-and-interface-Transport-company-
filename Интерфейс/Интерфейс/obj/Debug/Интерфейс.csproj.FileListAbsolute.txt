@@ -1,0 +1,41 @@
+X:\3 курс\Practica №2\Интерфейсы\Интерфейс\Интерфейс\bin\Debug\Интерфейс.exe.config
+X:\3 курс\Practica №2\Интерфейсы\Интерфейс\Интерфейс\bin\Debug\Интерфейс.exe
+X:\3 курс\Practica №2\Интерфейсы\Интерфейс\Интерфейс\bin\Debug\Интерфейс.pdb
+X:\3 курс\Practica №2\Интерфейсы\Интерфейс\Интерфейс\obj\Debug\Интерфейс.csprojResolveAssemblyReference.cache
+X:\3 курс\Practica №2\Интерфейсы\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Form1.resources
+X:\3 курс\Practica №2\Интерфейсы\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Form3.resources
+X:\3 курс\Practica №2\Интерфейсы\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Properties.Resources.resources
+X:\3 курс\Practica №2\Интерфейсы\Интерфейс\Интерфейс\obj\Debug\Интерфейс.csproj.GenerateResource.Cache
+X:\3 курс\Practica №2\Интерфейсы\Интерфейс\Интерфейс\obj\Debug\Интерфейс.exe
+X:\3 курс\Practica №2\Интерфейсы\Интерфейс\Интерфейс\obj\Debug\Интерфейс.pdb
+X:\3 курс\Practica №2\Интерфейсы\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Form4.resources
+X:\3 курс\Practica №2\Интерфейсы\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Form5.resources
+X:\3 курс\Practica №2\Интерфейсы\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Form6.resources
+I:\YCHEBA\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\bin\Debug\Интерфейс.exe.config
+I:\YCHEBA\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\bin\Debug\Интерфейс.exe
+I:\YCHEBA\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\bin\Debug\Интерфейс.pdb
+I:\YCHEBA\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.csprojAssemblyReference.cache
+I:\YCHEBA\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Form1.resources
+I:\YCHEBA\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Form3.resources
+I:\YCHEBA\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Form4.resources
+I:\YCHEBA\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Form5.resources
+I:\YCHEBA\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Form6.resources
+I:\YCHEBA\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Properties.Resources.resources
+I:\YCHEBA\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.csproj.GenerateResource.cache
+I:\YCHEBA\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.csproj.CoreCompileInputs.cache
+I:\YCHEBA\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.exe
+I:\YCHEBA\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.pdb
+D:\FromPC\EV_ALL\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\bin\Debug\Интерфейс.exe.config
+D:\FromPC\EV_ALL\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\bin\Debug\Интерфейс.exe
+D:\FromPC\EV_ALL\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\bin\Debug\Интерфейс.pdb
+D:\FromPC\EV_ALL\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.csprojAssemblyReference.cache
+D:\FromPC\EV_ALL\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Form1.resources
+D:\FromPC\EV_ALL\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Form3.resources
+D:\FromPC\EV_ALL\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Form4.resources
+D:\FromPC\EV_ALL\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Form5.resources
+D:\FromPC\EV_ALL\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Form6.resources
+D:\FromPC\EV_ALL\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.Properties.Resources.resources
+D:\FromPC\EV_ALL\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.csproj.GenerateResource.cache
+D:\FromPC\EV_ALL\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.csproj.CoreCompileInputs.cache
+D:\FromPC\EV_ALL\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.exe
+D:\FromPC\EV_ALL\FYO\Интерфейс для базы данных\Интерфейс\Интерфейс\obj\Debug\Интерфейс.pdb
